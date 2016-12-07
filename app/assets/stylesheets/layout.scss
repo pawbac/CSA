@@ -1,26 +1,64 @@
 /* Global styles */
-* {
-  margin: 0;
-  font-family: "Arial";
+
+@font-face {
+	font-family: TitilliumWeb;
+	src: url('/assets/fonts/TitilliumWeb-Regular.ttf');
 }
 
 body {
-  background-color: #C5F1F9;
+  font: 100% TitilliumWeb, Calibri, Lucida Grande;
+  background: #E6E6E6;
+	margin: 0 auto;
+	min-width: 720px;
+	width: 60%;
 }
 
-h1 {
-  padding-top: 1em;
+#page-wrap {
+  width: 80%
+}
+
+#sidebar {
+  width: 20%;
+  float: right;
+  background-color: white;
 }
 
 /* Application layout classes */
-.header {
-  height: 5em;
-  background-color: #115859;
-  width: 100%;
+#header {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
 }
 
-.content {
-  margin-left: 1em;
+#user {
+  text-align: center;
+	width: 9em;
+	position: fixed;
+	left: 40px;
+	top: 20px;
+	margin-left: 20px;
+  font: 140% TitilliumWeb, Calibri, Lucida Grande;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#content {
+	margin-top: 40px;
+	min-height: 350px;
+	height: auto;
+}
+
+#instant_messages_table {
+	text-align: right;
+	width: 14em;
+	/*position: fixed;*/
+	right: 60px;
+	bottom: 20px;
+	margin-left: 20px;
+}
+
+.center {
+	text-align: center;
 }
 
 .locale {
@@ -67,47 +105,43 @@ h1 {
 
 /* Following is CSS for tabbing taken from: http://clagnut.com/sandbox/csstabs/*/
 
-.navigation {
+#navigation {
   ul {
-    float: left;
-    padding-top: 1em;
-    padding-left: 0;
-    margin: 2em 0 0 0;
-    line-height: 1em;
-    list-style: none;
+    list-style-type: none;
   }
 
   li {
-    float: left;
-    margin: 0;
-    padding-top: 0.5em;
-    padding-bottom: 0.6em;
+    display: inline-block;
+	  background-color: #F0F0F0;
+    color: #000000;
+    width: 147px;
+    padding: 10px;
+  }
+
+  li.selected {
+    display: inline-block;
+    background-color: #33363B;
+	  color: #FFFFFF;
+    width: 147px;
+	  padding: 10px;
+  }
+
+  li:hover {
+    background-color: #33363B;
+	  color: #FFFFFF;
+  }
+
+  li.selected:hover {
+    background-color: #4a4e55;
+	  color: #FFFFFF;
   }
 
   a {
-    color: #aaaaaa;
+    display: block;
     text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
     font-weight: bold;
-    margin: 0;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .selected {
-    background-color: #C5F1F9;
-  }
-
-  a:hover,
-  a:active,
-  a.here:link,
-  a.here:visited {
-    color: #888888;
-  }
-
-  a.here:link,
-  a.here:visited {
-    position: relative;
-    z-index: 102;
   }
 }
 
@@ -124,7 +158,7 @@ h1 {
     }
 }
 
-.register {
+/*.register {
   color: #aaaaaa;
   text-align: center;
   font-size: 0.75em;
@@ -151,16 +185,38 @@ h1 {
   a.here:visited {
     color: #888888;
   }
-}
+}*/
 
 /* Striping the table using CSS3 magic */
 
+table {
+	border-collapse: collapse;
+	width: 100%;
+  border: none;
+  outline: none;
+}
+
+table tr.header {
+	color: #ffffff;
+	background-color: #555555;
+	border: 1px solid #555555;
+	padding: 3px;
+}
+
 tbody tr:nth-child(odd) {
-    background-color: #dddddd;
+  background-color: #f1f1f1;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #cccccc;
+  background-color: #ffffff;
+}
+
+table td {
+	border: 1px solid #d4d4d4;
+	padding: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	vertical-align: middle;
 }
 
 /* Digg style pagination taken from mislav-will_paginate rails gem doc */
@@ -170,33 +226,34 @@ tbody tr:nth-child(even) {
 }
 
 .digg_pagination a, .digg_pagination span, .digg_pagination em {
+  display: inline-block;
   padding: .2em .5em;
-  display: block;
-  float: left;
-  margin-right: 1px;
+  margin-right: -3px;
+  margin-top: 5px;
 }
 
-.digg_pagination span.disabled {
+.digg_pagination span.disabled { /* GIT */
   color: #999;
   border: 1px solid #DDD;
 }
 
-.digg_pagination em.current {
+.digg_pagination em.current { /* GIT */
   font-weight: bold;
-  background: #2E6AB1;
+  background: #33363B;
   color: white;
-  border: 1px solid #2E6AB1;
+  border: 1px solid #33363B;
 }
 
 .digg_pagination a {
   text-decoration: none;
-  color: #105CB6;
-  border: 1px solid #9AAFE5;
+  color: #33363B;
+  border: 1px solid #33363B;
 }
 
 .digg_pagination a:hover, .digg_pagination a:focus {
-  color: #003;
-  border-color: #003;
+  color: white;
+  border-color: #33363B;
+  background: #33363B;
 }
 
 .digg_pagination .page_info {

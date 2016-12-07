@@ -1,15 +1,15 @@
 <% user = current_user
 if !user %>
-  <div class="register">
-    <p>Welcome Guest</p>
+  <div>
+    <p>Welcome, Guest!</p>
     <%= link_to 'Forgot password?', '' %>
     or
     <%= link_to 'Register', '' %>
   </div>
 <% end %>
-<div class="login-form">
+<div>
   <% if user %>
-    <p>Welcome <%=user.login %> </p>
+    <p>Welcome, <%=user.user.firstname %>!</p>
     <%= button_to 'Logout', session_path, method: :delete %>
   <% else %>
     <%= button_to 'Login', new_session_path, method: :get %>
