@@ -11,7 +11,9 @@ gem 'puma'
 
 gem 'oauth'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+#Use Postgres for Heroku
+gem 'pg', group: :production
 # Use Puma as the app server
 #gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

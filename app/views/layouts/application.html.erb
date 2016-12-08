@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body id="<%= params[:controller].parameterize %>_controller">
+<body id="<%= params[:controller].parameterize %>_controller" class="center">
 
   <div id="page-wrap">
 
@@ -26,10 +26,6 @@
     <div id="header">
       <h1>CSA</h1>
 
-      <div id="navigation">
-        <%= render_navigation %>
-      </div>
-
       <% flash.each do |key, value| %>
             <span class="flash_<%= key %>">
               <span class="flash_message"><%= value %></span>
@@ -37,25 +33,30 @@
       <% end %>
     </div>
 
-    <div id="content" class="center">
-      <%= yield %>
+    <div id="navigation">
+      <%= render_navigation %>
     </div>
 
-    <div id="instant_messages_table">
-      <% broadcasts = Broadcast.all %>
-      <% if broadcasts.length > 0 %>
-          <% broadcasts.take(20).each do |broadcast| %>
-              <%= broadcast.created_at.to_s(:time) %> <%= broadcast.user.firstname %>:<br><%= broadcast.content %><br>
-          <% end %>
-      <% end %>
+    <div id="content" class="center">
+      <%= yield %>
     </div>
 
     <div id="footer">
     </div>
   </div>
 
-  <div id="sidebar">
+  <div class="divider"></div>
 
+  <div id="sidebar">
+    <h1 class="center">Instant Messenger</h1>
+    <div id="instant_messages_table">
+      <% broadcasts = Broadcast.order('created_at DESC').all %>
+      <% if broadcasts.length > 0 %>
+          <% broadcasts.take(20).each do |broadcast| %>
+              <%= broadcast.created_at.to_s(:time) %> <%= broadcast.user.firstname %>:<br><%= broadcast.content %><br>
+          <% end %>
+      <% end %>
+    </div>
   </div>
 </body>
 </html>
