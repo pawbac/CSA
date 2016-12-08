@@ -36,7 +36,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
+  config.action_cable.url = "wss://csa-heroku-pab37.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://csa-heroku-pab37.herokuapp.com', 'http://csa-heroku-pab37.herokuapp.com']
 
 
@@ -84,6 +84,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_cable.url = "wss://csa-heroku-pab37.herokuapp.com/cable" 
 end

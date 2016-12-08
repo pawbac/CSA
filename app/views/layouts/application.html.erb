@@ -50,7 +50,7 @@
   <div id="sidebar">
     <h1 class="center">Instant Messenger</h1>
     <div id="instant_messages_table">
-      <% broadcasts = Broadcast.order('created_at DESC').all %>
+      <% broadcasts = Broadcast.order('created_at DESC').select {|b| b.feeds.any? {|feed| feed.name == "instant_messenger"}} %>
       <% if broadcasts.length > 0 %>
           <% broadcasts.take(20).each do |broadcast| %>
               <%= broadcast.created_at.to_s(:time) %> <%= broadcast.user.firstname %>:<br><%= broadcast.content %><br>

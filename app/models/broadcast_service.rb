@@ -67,7 +67,7 @@ class BroadcastService
     # ActionCable
     ActionCable.server.broadcast 'instant_messenger_channel',
       content: broadcast.content,
-      created_at: broadcast.created_at,
+      created_at: broadcast.created_at.to_s(:time),
       firstname: broadcast.user.firstname
     add_feed broadcast, 'instant_messenger'
   end
