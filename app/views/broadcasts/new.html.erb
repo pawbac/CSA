@@ -18,7 +18,8 @@
     <div id="broadcast-area" class="main-input-area">
       <p>
         <%= f.text_area :content, cols: "100%", rows: "10",
-                        title: "Broadcast text goes here", autofocus: 'autofocus' %>
+                        title: "Broadcast text goes here", autofocus: 'autofocus',
+                        id: 'new_broadcast_text_area' %>
       </p>
 
       <div id="url-part">
@@ -33,7 +34,7 @@
       <br/>
 
       <div id="">
-        <%= f.submit 'Broadcast', confirm: 'Do you really want to broadcast?' %> |
+        <%= f.submit 'Broadcast', confirm: 'Do you really want to broadcast?', id: 'new_broadcast_submit_button' %> |
         <%= link_to 'Back', broadcasts_path(page: @current_page) %>
       </div>
 
@@ -42,7 +43,7 @@
     <div class="sub-input-area">
       <div class="checkboxes">
         <p>
-          <%= radio_button_tag 'feeds[alumni_email]', 'cs-alumni', true, title: "Select to broadcast general news" %>
+          <%= radio_button_tag 'feeds[alumni_email]', 'cs-alumni', false, title: "Select to broadcast general news" %>
           <%= label_tag 'feeds_alumni_email_alumni', 'General news' %>
         </p>
 
@@ -52,27 +53,27 @@
         </p>
 
         <p>
-          <%= check_box_tag 'feeds[email]', '1', true, title: "Select to choose Email feed" %>
+          <%= check_box_tag 'feeds[email]', '1', false, title: "Select to choose Email feed" %>
           <%= label_tag 'email', 'Email' %>
         </p>
 
         <p>
-          <%= check_box_tag 'feeds[facebook]', '1', true, title: "Select to choose Facebook feed" %>
+          <%= check_box_tag 'feeds[facebook]', '1', false, title: "Select to choose Facebook feed" %>
           <%= label_tag 'facebook', 'Facebook' %>
         </p>
 
         <p>
-          <%= check_box_tag 'feeds[RSS]', '1', true, title: "Select to choose RSS feed" %>
+          <%= check_box_tag 'feeds[RSS]', '1', false, title: "Select to choose RSS feed" %>
           <%= label_tag 'RSS', 'RSS' %>
         </p>
 
         <p>
-          <%= check_box_tag 'feeds[atom]', '1', true, title: "Select to choose Atom feed" %>
+          <%= check_box_tag 'feeds[atom]', '1', false, title: "Select to choose Atom feed" %>
           <%= label_tag 'atom', 'Atom' %>
         </p>
 
         <p>
-          <%= check_box_tag 'feeds[instant_messenger]', '1', true, title: "Select to choose IM feed" %>
+          <%= check_box_tag 'feeds[instant_messenger]', '1', false, title: "Select to choose IM feed" %>
           <%= label_tag 'instant_messenger', 'Instant Messenger (IM)' %>
         </p>
 
@@ -82,7 +83,7 @@
                          $('#url-part').toggle();
                          $('#twitter-char-count').toggle();
           -->
-          <%= check_box_tag 'feeds[twitter]', '1', true,
+          <%= check_box_tag 'feeds[twitter]', '1', false,
                             title: "Select to choose Twitter feed" %>
           <%= label_tag 'twitter', 'Twitter' %>
         </p>

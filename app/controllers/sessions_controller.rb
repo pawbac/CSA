@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   # POST /session
-  def create 
+  def create
     user_detail = 
        UserDetail.authenticate(params[:login], params[:password])
     if user_detail

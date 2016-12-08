@@ -9,7 +9,6 @@ class BroadcastService
   # you would want to make this a singleton rather than use class scope methods. The
   # error handling mechanism is also a bit clunky and non-user friendly.
   def self.broadcast(broadcast, feeds)
-    puts "feeds: #{feeds.inspect}"
     result = []
     feeds.each do |feed, value|
       case feed

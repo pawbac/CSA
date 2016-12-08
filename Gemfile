@@ -11,7 +11,9 @@ gem 'puma'
 
 gem 'oauth'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
+group :development, :test do
+  gem 'sqlite3'
+end
 #Use Postgres for Heroku
 gem 'pg', group: :production
 # Use Puma as the app server
@@ -54,6 +56,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
