@@ -19,8 +19,8 @@ class BroadcastService
         when "facebook"
         when "RSS"
         when "atom"
-        when "instant_messenger"
-          via_instant_messenger(broadcast) # should return any error? (use of result.concat)
+        when "notification_feed"
+          via_notification_feed(broadcast) # should return any error? (use of result.concat)
       end
     end
     result
@@ -62,13 +62,13 @@ class BroadcastService
     result
   end
 
-  def self.via_instant_messenger(broadcast)
+  def self.via_notification_feed(broadcast)
     # ActionCable
-    ActionCable.server.broadcast 'instant_messenger_channel',
+    ActionCable.server.broadcast 'notification_feed_channel',
       content: broadcast.content,
       created_at: broadcast.created_at.to_s(:time),
       firstname: broadcast.user.firstname
-    add_feed broadcast, 'instant_messenger'
+    add_feed broadcast, 'notification_feed'
   end
 
   def self.add_feed(broadcast, feed_name)

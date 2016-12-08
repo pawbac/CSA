@@ -26,5 +26,5 @@ User.transaction do
   Feed.create!(name: 'RSS')
   Feed.create!(name: 'atom')
   # For ActionCable
-  Feed.create!(name: 'instant_messenger')
+  Feed.create!(name: 'notification_feed')
 end
