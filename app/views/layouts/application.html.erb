@@ -10,7 +10,7 @@
 
 <body id="<%= params[:controller].parameterize %>_controller" class="center">
 
-  <div id="page-wrap">
+  <div id="<%= current_user ? 'page-wrap' : 'page-wrap-logout' %>">
 
     <div id ="user">
       <!-- Blank URI so browser will request current page when form submitted -->
@@ -45,6 +45,7 @@
     </div>
   </div>
 
+  <% if current_user %>
   <div class="divider"></div>
 
   <div id="sidebar">
@@ -58,5 +59,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 </body>
 </html>
