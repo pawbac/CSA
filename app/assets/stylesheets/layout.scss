@@ -94,24 +94,24 @@ body {
 }
 
 .main-input-area{
+  width: 80%;
   padding-top:1em;
   float: left;
   display:block;
 }
 
 .sub-input-area  {
-  float:left;
-  margin-right: 1em;
-  margin-left: 2em;
+  width: 20%;
   padding-top:1em;
+  float:right;
   display:block;
+  text-align: left;
 
   .checkboxes p {
     padding-bottom: 0.5em;
   }
 
   .checkboxes {
-    margin-right: 0;
   }
 }
 

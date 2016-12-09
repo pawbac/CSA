@@ -1,7 +1,11 @@
 #broadcasts_controller {
 
-	#url-part {
-	    padding-top:1em;
+	#url-part, #twitter-char-count {
+		display: none;
+	}
+
+	#new_broadcast_text_area{
+		width: 90%;
 	}
 	
 	#split-arrow{
