@@ -42,9 +42,7 @@ class Api::BroadcastsController < API::ApplicationController # TODO naming
           # Something went wrong when trying to broadcast to one or more of the
           # feeds.
           @broadcast.errors[:base] << ("#{I18n.t('broadcasts.unable-message')}: #{results.inspect}")
-          flash[:error] = I18n.t('broadcasts.saved-but-message')
         else
-          flash[:notice] = I18n.t('broadcasts.saved-message')
           no_errors = true
         end
         if no_errors

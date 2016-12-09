@@ -31,6 +31,7 @@ body {
 
 /* Application layout classes */
 #header {
+  position: relative;
 	margin-top: 30px;
 	margin-bottom: 30px;
 	text-align: center;
@@ -66,11 +67,11 @@ body {
 }
 
 .divider{
-    position:absolute;
-    left:80%;
-    top: 0;
-    bottom: 0;
-    border-left:1px solid black;
+  position:absolute;
+  left:80%;
+  top: 0;
+  bottom: 0;
+  border-left:1px solid black;
 }
 
 .locale {
@@ -80,17 +81,19 @@ body {
 }
 
 .flash_notice {
-  color: #ccffaa;
+  position: absolute;
+  top: -25px;
+  right: 0;
+  margin-right: 10px;
+  text-align: right;
+  font-weight: bold;
 }
 
 .flash_error {
-  color: #ff8899;
+  color: red;
 }
 
 .flash_message {
-  position: absolute;
-  top: 1.2em;
-  left: 0.5em;
 }
 
 .main-input-area{
